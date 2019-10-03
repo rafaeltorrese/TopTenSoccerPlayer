@@ -35,6 +35,7 @@ data ={
 
 
 first_player = last_ten_players[0]
+print(first_player)
 year = first_player.find('span').previous_sibling.split()[0]
 country = first_player.find('a')['title']
 #for i,p in enumerate(first_player.find_all('a')):
