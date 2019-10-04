@@ -32,7 +32,7 @@ data = {
         'Price':[float(car.find('span' , class_='price__fraction').text.replace(',' , '')) if car else 'none' for car in list_of_cars   ],
         'Year':[int(car.find('div' , class_='item__attrs').text.strip().split('|')[0]) if car else 'none' for car in list_of_cars ],
         'Km':[int(car.find('div' , class_='item__attrs').text.strip().split('|')[1].replace('km' , '')) if car else 'none' for car in list_of_cars ],
-        'Description':[car.find('span' , class_='main-title').text.strip() if car else 'none' for car in list_of_cars],
+        'Description':[car.find('span' , class_='main-title').text.strip().split()[0] if car else 'none' for car in list_of_cars],
         'Location':[car.find('div' , class_='item__location').text if car else 'none' for car in list_of_cars]
         }
 
@@ -43,4 +43,4 @@ print(CarsDF)
 
 
 # Save to csv
-CarsDF.to_csv('Cars.csv' , index=False, sep=',' , encoding='utf-8') 
+CarsDF.to_csv('Cars.csv' , index=False, sep=',' , encoding='utf-8')
